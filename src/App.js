@@ -6,7 +6,7 @@ import SearchResult from "./components/SearchResult";
 class App extends Component {
   state = {
     value: "",
-    image: ""
+    images: [] 
   };
 
   handleInputChange = event => {
@@ -29,8 +29,9 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(jsondata => {
+        console.log(jsondata);
         this.setState({
-          image: jsondata[0].href
+          images: jsondata[0]
         });
       })
       .catch(error => {
