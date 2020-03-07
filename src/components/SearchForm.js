@@ -2,6 +2,8 @@ import React from "react";
 
 const SearchForm = props => {
   return (
+    <div>
+      <h3>Search Photos by tag</h3>
       <form id='search' className="search-form" onSubmit={props.submit}>
       <input 
         className="input-box"
@@ -12,6 +14,8 @@ const SearchForm = props => {
       />
       <button className="submit-button">Search</button>
     </form>
+    </div>
+  
   );
 };
 
