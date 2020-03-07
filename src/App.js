@@ -3,8 +3,11 @@ import "./App.css";
 import SearchForm from "./components/SearchForm";
 import SearchResult from "./components/SearchResult";
 import UploadForm from "./components/UploadForm";
+import Tags from "./components/Tags";
 
 class App extends Component {
+
+
   state = {
     searchFromValue: "",
     uploadFormLinkValue: "",
@@ -98,6 +101,7 @@ class App extends Component {
           tagChange={this.handleUploadTagInputChange}
           submit={this.handleUploadSubmit}
         />
+        <Tags/>
         <SearchResult images={this.state.images} />
         
       </div>
