@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+.tagButton{
+  background-color: gainsboro;
+  display: inline-block;
+  padding: 5px;
+  margin: 2px;
+  font-size: large;
+  font-weight: 100;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 10px;
+}
+.chipText{
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 50;
+  text-align: left;
+  margin: 10px;
+  margin-top: 20px;
+}
+.clearButton{
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 200;
+  margin-right: 5px;
+  vertical-align: text-bottom;
+}
+
