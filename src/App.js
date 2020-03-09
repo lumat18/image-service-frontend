@@ -79,7 +79,7 @@ class App extends Component {
 
     this.setState({
       uploadFormLinkValue: '',
-      uploadFormTagValue: null
+      uploadFormTagValue: []
     });
   }
 
