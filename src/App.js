@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     searchFromValue: "",
     uploadFormLinkValue: "",
-    uploadFormTagValue: "",
+    uploadFormTagValue: [],
     images: []
   };
 
@@ -27,11 +27,7 @@ class App extends Component {
     });
   };
 
-  handleUploadTagInputChange = event => {
-    this.setState({
-      uploadFormTagValue: event.target.value
-    });
-  };
+
 
   handleSearchSubmit = event => {
     event.preventDefault();
@@ -55,23 +51,19 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
+      this.state.searchFromValue='';
   };
 
   handleUploadSubmit = event => {
     event.preventDefault();
     const API = `http://localhost:8080/api/photos`;
 
-    console.log(this.state.uploadFormLinkValue);
-    console.log(this.state.uploadFormTagValue);
 
     const jsonToPost = {
       "href": this.state.uploadFormLinkValue,
-      "tags":[
-        {
-          "tag_name": this.state.uploadFormTagValue
-        }
-        ]
+      "tags": this.state.uploadFormTagValue
   }
+
     console.log(JSON.stringify(jsonToPost));
     const Param={
       headers:{
@@ -84,6 +76,11 @@ class App extends Component {
     .then(data=>{return data.json()})
     .then(res=>{console.log(res)})
     .catch(err=>console.log(err));
+
+    this.setState({
+      uploadFormLinkValue: '',
+      uploadFormTagValue: null
+    });
   }
 
   render() {
@@ -98,12 +95,9 @@ class App extends Component {
           linkValue={this.state.uploadFormLinkValue}
           linkChange={this.handleUploadLinkInputChange}
           tagValue={this.state.uploadFormTagValue}
-          tagChange={this.handleUploadTagInputChange}
           submit={this.handleUploadSubmit}
         />
-        <Tags/>
         <SearchResult images={this.state.images} />
-        
       </div>
     );
   }
