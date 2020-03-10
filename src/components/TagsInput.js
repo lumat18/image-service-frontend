@@ -7,7 +7,7 @@ const TagsInput = (props) => {
     const addTags = event => {
         if(event.key === ' ' && event.target.value !== ''){
             setTags([...tags, event.target.value]);
-            props.tagValue.push({'tag_name':event.target.value});
+            //props.tagValue.push({'tag_name':event.target.value});
             //props.selectedTags([...tags, event.target.value]);
             event.target.value = '';
         }
@@ -21,6 +21,11 @@ const TagsInput = (props) => {
         tags.length=0;
     };
     
+    const setTagsInState = () => {
+        console.log("hey");
+        tags.forEach(tag=> props.tagValue.push({'tag_name':tag}));
+    }
+
     return (
         <div>
         <h3>Upload new Photo and Tag it!</h3>
@@ -47,7 +52,7 @@ const TagsInput = (props) => {
                 } 
             }
                 placeholder='Press space to add tags'/>
-                <button className="submit-button" onClick={()=>{removeAllTags()}}>Upload</button>
+                <button className="submit-button" onClick={()=>{setTagsInState(); removeAllTags();}}>Upload</button>
         </div>
     </form>
     </div>
